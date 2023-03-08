@@ -1,0 +1,317 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Highcharts 教程 | 菜鸟教程(runoob.com)</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+</head>
+<style>
+    .box01,
+    .box02,
+    .box03,
+    .box04,
+    .box05,
+    .box06,
+    .box07,
+    .box08,
+    .box09
+    {
+        width: 50px;
+        height: 50px;
+        float: left;
+    }
+    img{
+        width: 70%;
+    }
+    .part01{
+        position: absolute;
+        width: 300px;
+        height: 40px;
+        margin-left: 250px;
+    }
+    .part02{
+        position: absolute;
+        width: 300px;
+        height: 40px;
+        margin-left: 650px;
+    }
+    .part03{
+        position: absolute;
+        width: 300px;
+        height: 40px;
+        margin-left: 1000px;
+    }
+    #PC,#sp{
+        position: absolute;
+        left: 100px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .box10,
+    .box11,
+    .box12,
+    .box13{
+        float: left;
+        width: 50px;
+        height: 50px;
+    }
+    .sp01,
+    .sp02,
+    .sp03,
+    .sp04
+    {
+        width: 60%;
+    }
+    .bar{
+        height: 50px;
+    }
+    .part001{
+        position: absolute;
+        left: 80px;
+        width: 300px;
+        height: 40px;
+        margin-left: 200px;
+    }
+
+    .part002{
+        position: absolute;
+        left: 80px;
+        width: 300px;
+        height: 40px;
+        margin-left: 580px;
+    }
+
+    .part003{
+        position: absolute;
+        left: 80px;
+        width: 300px;
+        height: 40px;
+        margin-left: 956px;
+    }
+
+
+</style>
+<body>
+<div id="container" style="width: 1200px; height: 600px; margin: 0 auto">
+</div>
+<span id="PC">PC:</span>
+<div class="part01">
+    <div class="box08">
+        <img src="img/webstorm.png" alt="">
+    </div>
+
+    <div class="box06">
+        <img src="img/ps.png" alt="">
+    </div>
+
+    <div class="box03">
+        <img src="img/edge.png" alt="">
+    </div>
+
+    <div class="box04">
+        <img src="img/chrome.png" alt="">
+    </div>
+
+
+    <div class="box05">
+        <img src="img/kugou.png" alt="">
+    </div>
+</div>
+
+<div class="part02">
+    <div class="box01">
+        <img src="img/idea.png" alt="">
+    </div>
+
+
+
+    <div class="box07">
+        <img src="img/pycharm.png" alt="">
+    </div>
+
+
+    <div class="box05">
+        <img src="img/kugou.png" alt="">
+    </div>
+
+
+    <div class="box09">
+        <img src="img/youdao.png" alt="">
+    </div>
+</div>
+
+<div class="part03">
+    <div class="box01">
+        <img src="img/idea.png" alt="">
+    </div>
+
+    <div class="box02">
+        <img src="img/clion.png" alt="">
+    </div>
+
+    <div class="box07">
+        <img src="img/pycharm.png" alt="">
+    </div>
+
+
+    <div class="box03">
+        <img src="img/edge.png" alt="">
+    </div>
+
+
+
+    <div class="box05">
+        <img src="img/kugou.png" alt="">
+    </div>
+
+
+    <div class="box09">
+        <img src="img/youdao.png" alt="">
+    </div>
+</div>
+
+<div class="bar"></div>
+
+<span id="sp">SmartPhone:</span>
+
+<div class="part001">
+
+    <div class="box10">
+        <img class="sp01" src="img/phone/kugou.png" alt="">
+    </div>
+
+    <div class="box11">
+        <img class="sp02"  src="img/phone/baidu.png" alt="">
+    </div>
+
+    <div class="box12">
+        <img class="sp03"  src="img/phone/cilicili.png" alt="">
+    </div>
+
+    <div class="box13">
+        <img class="sp04"  src="img/phone/wps.png" alt="">
+    </div>
+
+</div>
+
+
+<div class="part002">
+
+    <div class="box10">
+        <img class="sp01" src="img/phone/kugou.png" alt="">
+    </div>
+
+    <div class="box11">
+        <img class="sp02"  src="img/phone/baidu.png" alt="">
+    </div>
+
+    <div class="box12">
+        <img class="sp03"  src="img/phone/cilicili.png" alt="">
+    </div>
+
+    <div class="box13">
+        <img class="sp04"  src="img/phone/wps.png" alt="">
+    </div>
+
+</div>
+
+
+
+<div class="part003">
+
+    <div class="box10">
+        <img class="sp01" src="img/phone/kugou.png" alt="">
+    </div>
+
+    <div class="box11">
+        <img class="sp02"  src="img/phone/baidu.png" alt="">
+    </div>
+
+    <div class="box12">
+        <img class="sp03"  src="img/phone/cilicili.png" alt="">
+    </div>
+
+    <div class="box13">
+        <img class="sp04"  src="img/phone/wps.png" alt="">
+    </div>
+
+</div>
+
+
+
+
+<script language="JavaScript">
+    $(document).ready(function () {
+        var chart = {
+            type: 'areaspline'
+        };
+        var title = {
+            text: '我一天在不同设备不同应用所花费的时间情况(设备只有两个O(∩_∩)O)'
+        };
+        var subtitle = {
+            style: {
+                position: 'absolute',
+                right: '0px',
+                bottom: '10px'
+            }
+        };
+        var legend = {
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            x: 150,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        };
+        var xAxis = {
+            categories: ['9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', '9pm'],
+            title: {
+                text: '时间点',
+            }
+        };
+        var yAxis = {
+            title: {
+                text: '使用占比'
+            },
+            max: 1,
+            min: 0
+        };
+        var tooltip = {
+            shared: true,
+            valueSuffix: ' units'
+        };
+        var credits = {
+            enabled: false
+        }
+        var plotOptions = {
+            areaspline: {
+                fillOpacity: 0.5
+            }
+        };
+        var series = [{
+            name: 'PC',
+            data: [0.9, 0.8, 0.8, 0.0, 0.3, 0.9, 0.9, 0.8, 0.7, 0.7, 0.8, 0.8, 0.9]
+        }, {
+            name: 'Smartphone',
+            data: [0.1, 0.2, 0.2, 0.0, 0.2, 0.1, 0.1, 0.2, 0.3, 0.3, 0.2, 0.2, 0.1]
+        },
+        ];
+
+        var json = {};
+        json.chart = chart;
+        json.title = title;
+        json.subtitle = subtitle;
+        json.xAxis = xAxis;
+        json.yAxis = yAxis;
+        json.legend = legend;
+        json.plotOptions = plotOptions;
+        json.credits = credits;
+        json.series = series;
+        $('#container').highcharts(json);
+
+    });
+</script>
+</body>
+</html>
